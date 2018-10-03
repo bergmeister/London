@@ -1,0 +1,5 @@
+Invoke-Webrequest 'https://github.com/PowerShell/vscode-powershell/files/2377341/psvsix.zip' -OutFile 'out.zip';
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+IO.Compression.ZipFile]::ExtractToDirectory('out.zip', $pwd.path)
+code --install-extension ./PowerShell-v2-extremely-alpha.vsix
+rm ./PowerShell-v2-extremely-alpha.vsix; rm ./out.zip
